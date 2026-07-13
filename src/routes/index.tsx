@@ -195,8 +195,8 @@ function Hero() {
 
 function Stats() {
   return (
-    <section className="relative -mt-8 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 rounded-3xl border border-border bg-white/70 p-3 shadow-card backdrop-blur-xl sm:gap-4 sm:p-4 lg:grid-cols-4">
+    <section className="relative -mt-4 px-4 sm:-mt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 rounded-3xl border border-border bg-white/70 p-3 shadow-card backdrop-blur-xl sm:grid-cols-2 sm:gap-4 sm:p-4 lg:grid-cols-4">
         {STATS.map((s, i) => (
           <motion.div
             key={s.label}
