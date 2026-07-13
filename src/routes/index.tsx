@@ -76,8 +76,8 @@ const GALLERY = [
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-2.5">
-      <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-brand shadow-elegant">
-        <Printer className="h-5 w-5 text-white" strokeWidth={2.5} />
+      <div className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl bg-white shadow-elegant ring-1 ring-black/5">
+        <img src="/logo.png" alt="AR Digital Spot logo" className="h-full w-full object-contain" />
       </div>
       <div className="flex flex-col leading-tight">
         <span className="text-[15px] font-extrabold text-foreground">AR Digital Spot</span>
