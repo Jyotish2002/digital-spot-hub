@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { getPublicSiteConfig } from "../lib/site-config.functions";
+import { SiteConfigProvider } from "../lib/site-config-context";
+import { siteConfigToCssVars } from "../lib/site-config";
 
 function NotFoundComponent() {
   return (
@@ -73,16 +76,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: () => getPublicSiteConfig(),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AR Digital Spot — Printing & Digital Services in Naihati" },
-      { name: "description", content: "Fast, affordable printing, Xerox, DTF & vinyl, and online digital services in Naihati. From ₹1/page prints to customized gifts — your one-stop solution hub." },
+      {
+        name: "description",
+        content:
+          "Fast, affordable printing, Xerox, DTF & vinyl, and online digital services in Naihati. From ₹1/page prints to customized gifts — your one-stop solution hub.",
+      },
       { name: "author", content: "AR Digital Spot" },
       { name: "theme-color", content: "#2563EB" },
       { property: "og:title", content: "AR Digital Spot — Printing & Digital Services" },
-      { property: "og:description", content: "Printing, Xerox, DTF, Vinyl, and online services in Naihati. Fast turnaround, ₹1/page, free delivery over 100 pages." },
+      {
+        property: "og:description",
+        content:
+          "Printing, Xerox, DTF, Vinyl, and online services in Naihati. Fast turnaround, ₹1/page, free delivery over 100 pages.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -94,7 +106,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/logo.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -119,11 +134,31 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const siteConfig = Route.useLoaderData();
+
+  useEffect(() => {
+    const vars = siteConfigToCssVars(siteConfig.theme);
+    const root = document.documentElement;
+    const body = document.body;
+
+    Object.entries(vars).forEach(([key, value]) => {
+      root.style.setProperty(key, value);
+      body.style.setProperty(key, value);
+    });
+
+    document.title = siteConfig.seo.title;
+    const descriptionTag = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (descriptionTag) {
+      descriptionTag.content = siteConfig.seo.description;
+    }
+  }, [siteConfig]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteConfigProvider value={siteConfig}>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </SiteConfigProvider>
     </QueryClientProvider>
   );
 }
