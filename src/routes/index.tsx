@@ -64,6 +64,8 @@ const FAQS = [
   { q: "How fast can I get my order?", a: "Most walk-in prints are ready in minutes. Larger jobs and customized products (like DTF shirts or mugs) usually take a few hours to a day." },
 ];
 
+const CONTACT_EMAIL = "shaw74757@gmail.com";
+
 const GALLERY = [
   { src: gallery1, alt: "Custom DTF printed t-shirts", tall: true },
   { src: gallery2, alt: "Digital color printing in progress" },
@@ -133,7 +135,7 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-24">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col justify-center">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
-            <MapPin className="h-3.5 w-3.5" /> Naihati, West Bengal
+            <MapPin className="h-3.5 w-3.5" /> AR DIGITAL SPOT, Gowala Fatak uttar para, Bada chatal, Naihati, West Bengal 743166
           </div>
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Your Trusted Partner for{" "}
@@ -453,18 +455,22 @@ function Contact() {
           <div className="rounded-3xl border border-border bg-white p-8 shadow-card">
             <div className="text-xs font-bold uppercase tracking-wider text-primary">Business</div>
             <div className="mt-2 text-2xl font-extrabold">AR Digital Spot</div>
-            <div className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground"><MapPin className="h-4 w-4" /> Naihati, West Bengal</div>
+            <div className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground"><MapPin className="h-4 w-4" /> AR DIGITAL SPOT, Gowala Fatak uttar para, Bada chatal, Naihati, West Bengal 743166</div>
 
             <div className="mt-8 grid gap-3">
-              <a href="tel:+910000000000" className="flex items-center gap-3 rounded-2xl bg-gradient-brand p-4 text-white shadow-elegant transition-transform hover:scale-[1.02]">
+              <a href="tel:+918697832373" className="flex items-center gap-3 rounded-2xl bg-gradient-brand p-4 text-white shadow-elegant transition-transform hover:scale-[1.02]">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-white/20"><Phone className="h-5 w-5" /></div>
                 <div className="min-w-0"><div className="text-xs opacity-80">Call Now</div><div className="truncate text-sm font-bold">Talk to our team</div></div>
               </a>
-              <a href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-colors hover:bg-secondary">
+              <a href="https://wa.me/918697832373" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-colors hover:bg-secondary">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><MessageCircle className="h-5 w-5" /></div>
                 <div className="min-w-0"><div className="text-xs text-muted-foreground">WhatsApp</div><div className="truncate text-sm font-bold text-foreground">Message instantly</div></div>
               </a>
-              <a href="https://maps.google.com/?q=Naihati+West+Bengal" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-colors hover:bg-secondary">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-colors hover:bg-secondary">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent"><Mail className="h-5 w-5" /></div>
+                <div className="min-w-0"><div className="text-xs text-muted-foreground">Email</div><div className="truncate text-sm font-bold text-foreground">{CONTACT_EMAIL}</div></div>
+              </a>
+              <a href="https://maps.google.com/?q=AR+DIGITAL+SPOT%2C+Gowala+Fatak+uttar+para%2C+Bada+chatal%2C+Naihati%2C+West+Bengal+743166" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-colors hover:bg-secondary">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent"><MapPin className="h-5 w-5" /></div>
                 <div className="min-w-0"><div className="text-xs text-muted-foreground">Location</div><div className="truncate text-sm font-bold text-foreground">Get directions</div></div>
               </a>
@@ -472,14 +478,14 @@ function Contact() {
 
             <div className="mt-8 border-t border-border pt-6">
               <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Store Hours</div>
-              <div className="mt-2 text-sm text-foreground/80">Mon – Sun · 9:00 AM – 9:00 PM</div>
+              <div className="mt-2 text-sm text-foreground/80">Monday to Sunday: 10:30 AM – 2:00 PM · 5:30 PM – 9:30 PM</div>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-border bg-white shadow-card">
             <iframe
               title="AR Digital Spot location"
-              src="https://www.google.com/maps?q=Naihati,West+Bengal&output=embed"
+              src="https://www.google.com/maps?q=AR+DIGITAL+SPOT%2C+Gowala+Fatak+uttar+para%2C+Bada+chatal%2C+Naihati%2C+West+Bengal+743166&output=embed"
               className="h-full min-h-[420px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -503,9 +509,10 @@ function Footer() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">Fast, affordable printing and digital services in Naihati. Trusted by 1000+ customers.</p>
             <div className="mt-5 flex gap-2">
-              {[Facebook, Instagram, Send, Mail].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:bg-white/10 hover:text-white"><Icon className="h-4 w-4" /></a>
-              ))}
+              <a href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:bg-white/10 hover:text-white"><Facebook className="h-4 w-4" /></a>
+              <a href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:bg-white/10 hover:text-white"><Instagram className="h-4 w-4" /></a>
+              <a href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:bg-white/10 hover:text-white"><Send className="h-4 w-4" /></a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/70 transition-colors hover:bg-white/10 hover:text-white"><Mail className="h-4 w-4" /></a>
             </div>
           </div>
           <div>
@@ -523,15 +530,26 @@ function Footer() {
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-white">Contact</div>
             <ul className="mt-4 space-y-2 text-sm text-white/60">
-              <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> Naihati, West Bengal</li>
-              <li className="flex items-start gap-2"><Phone className="mt-0.5 h-4 w-4 shrink-0" /> Call anytime</li>
-              <li className="flex items-start gap-2"><MessageCircle className="mt-0.5 h-4 w-4 shrink-0" /> WhatsApp support</li>
+              <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> AR DIGITAL SPOT, Gowala Fatak uttar para, Bada chatal, Naihati, West Bengal 743166</li>
+              <li>
+                <a href="tel:+918697832373" className="flex items-start gap-2 transition-colors hover:text-white">
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>Call anytime: 86978 32373</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/918697832373" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 transition-colors hover:text-white">
+                  <MessageCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>WhatsApp: 86978 32373</span>
+                </a>
+              </li>
+              <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 shrink-0" /> {CONTACT_EMAIL}</li>
             </ul>
           </div>
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row">
           <div>© 2026 AR Digital Spot. All Rights Reserved.</div>
-          <div>Crafted with care in Naihati, WB.</div>
+          <div>Crafted with care at AR DIGITAL SPOT, Gowala Fatak uttar para, Bada chatal, Naihati, West Bengal 743166.</div>
         </div>
       </div>
     </footer>
